@@ -10,174 +10,145 @@ namespace Laboratorio_1
 {
     public class Persona
     {
-
-        // 1. Instrucciones de la Guía Didáctica
-        //Los aspectos primordiales sobre los que se debe trabajar en esta parte:
-        //a.El estudiante trabajara de forma individual.
-        //b.El estudiante deberá elaborar una aplicación en C#.
-        //c. El programa tendrá que tener estructuras de control. Elaborar una aplicación de consola
-        //con los siguientes datos:
-        //1. Se ingresarán 3 datos nombres, edad, departamento y municipio.
-        //2. Los municipios deberán estar en lasados al departamento seleccionado.
-        //3. Al darle agregar el dato se guardarán en un arregló.
-        //4. Recorrer el arreglo y mostrar la edad.
-        //d.Subir proyecto a su respectivo GitHub.
-        //e.Entrega enlace en Classroom
-
         private string nombre;
         private string apellido;
         private int edad;
         private string departamento;
         private string municipio;
-
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido { get => apellido; set => apellido = value; }
         public int Edad { get => edad; set => edad = value; }
         public string Departamento { get => departamento; set => departamento = value; }
         public string Municipio { get => municipio; set => municipio = value; }
 
-        public void RegistroCliente(string _nombre, string _apellido, int _edad, string _departamento, string _municipio)
+        public void RegistroCliente()
         {
-            this.Nombre = _nombre;
-            this.Apellido = _apellido;
-            this.Edad = _edad;
-            this.Departamento = _departamento;
-            this.Municipio = _municipio;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("********************************************");
+            Console.WriteLine("\nPor favor ingrese sus nombres por favor.");
+            Nombre = Console.ReadLine();
 
+            Console.WriteLine("\nPor favor le solicitamos que ponga sus apellidos");
+            Apellido = Console.ReadLine();
 
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("********************************************");
-                Console.WriteLine("\nPor favor ingrese sus nombres por favor.");
-                nombre = Console.ReadLine();
-                Console.WriteLine("\nPor favor le solicitamos que ponga sus apellidos");
-                apellido = Console.ReadLine();
-                Console.WriteLine("\n¿Por favor digita el departamento de donde vives?");
+            Console.WriteLine("\nPor favor digita tú edad");
+            Edad = int.Parse( Console.ReadLine());
 
-
-
-
-            string[] Opciones = { "Chalatenango", "San Salvador", "Santa Ana", "Sonsonate", "La libertad", "San vicente" };//
-
-            string[] MuniChalatenango = { "Agua Caliente", "Arcatao", "Azacualpa", "Cascasque", "Chalatenango", "Citala" };//
-
-            string[] MuniSanSalvador = { "Antiguo Cuscatlan", "Santa Tecla", "Apopa", "Ciudad delgado", "Ilopango", "San Marcos" };//
-
-            string[] MuniSantaAna = { "El Congo", "El Porvenir", "Massahuat", "Metapan", "San Antonio Pajonal", "Santa Rosa Guachipilin" };//
-
-            string[] MuniSonsonate = { "Acajutla", "Armenia", "Caluco", "Izalco", "Cuisnahuat", "Nahulingo" };//
-
-            string[] MuniLaLibertad = { "Antiguo Cuscatlan", "Chiltiupan", "Ciudad Arce", "Colon", "Comasagua", "Jayaque" };//
-
-            string[] MuniSanVicente = { "Apastepeque", "Guadalupe", "San Cateyatano", "San Lorenzo", "San Sebastian", "Santa clara" };//
-            for (int i = 0; i < Opciones.Length; i++)
+            ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\n¿Por favor digita el departamento de donde vives?");
+            ResetColor();
+            string[] opciones = { "Chalatenango", "San Salvador", "Santa Ana", "Sonsonate", "La Libertad", "San Vicente" };
+            for (int i = 0; i < opciones.Length; i++)
             {
-                Console.WriteLine($"{i+1}-{Opciones[i]}");
+                Console.WriteLine($"{i + 1}-{opciones[i]}");
             }
 
             int opcionDepartamento = int.Parse(Console.ReadLine());
-            if (opcionDepartamento > 14 || opcionDepartamento <= 0)
-                {
-
-                Console.WriteLine($"La opcion ingresada = {opcionDepartamento} no se encuentra en la lista, Por favor vuelve a seleccionar un Depatamento valido\n");
-                Console.WriteLine("¿Por favor digita el departamento de donde vives?\n");
-                for (int i = 0; i < MuniChalatenango.Length; i++)
-                {
-                    Console.WriteLine($"{i + 1}-{MuniChalatenango[i]}");
-                    
-                }
-
-
-            }
-            else
+            while (opcionDepartamento > opciones.Length || opcionDepartamento <= 0)
             {
-                switch (opcionDepartamento)
+                ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"La opcion ingresada = {opcionDepartamento} no se encuentra en la lista, Por favor vuelve a seleccionar un Departamento valido\n");
+                ResetColor();
+                for (int i = 0; i < opciones.Length; i++)
                 {
-                    #region#DEPARTAMENTOS
-                    case 1:
-                        WriteLine("Elegiste la opcion 1");
-                        Departamento = "Chalatenango";
-                        Console.WriteLine("\nMuy bien ahora por favor dime el municipio donde te ubicas \n");
-                        for (int i = 0; i < MuniChalatenango.Length; i++)
-                        {
-                            Console.WriteLine($"{i + 1}-{MuniChalatenango[i]}");
-
-                        }
-                        Municipio = MuniChalatenango[opcionMunicipio - 1];
-
-                        break;
-                    case 2:
-                        WriteLine("Elegiste la opcion 2");
-                        Departamento = "San Salvador";
-                        Console.WriteLine("\nMuy bien ahora por favor dime el municipio donde te ubicas \n ");
-                        for (int i = 0; i < MuniSanSalvador.Length; i++)
-                        {
-                            Console.WriteLine($"{i + 1}-{MuniSanSalvador[i]}");
-
-                        }
-                        Departamento = MuniChalatenango;
-
-                        break;
-                    case 3:
-                        WriteLine("Elegiste la opcion 3");
-                        Departamento = "Santa Ana";
-                        Console.WriteLine("\nMuy bien ahora por favor dime el municipio donde te ubicas \n ");
-
-                        for (int i = 0; i < MuniSantaAna.Length; i++)
-                        {
-                            Console.WriteLine($"{i + 1}-{MuniSantaAna[i]}");
-
-                        }
-
-                        break;
-                    case 4:
-                        WriteLine("Elegiste la opcion 1");
-                        Departamento = "Sonsonate";
-                        Console.WriteLine("\nMuy bien ahora por favor dime el municipio donde te ubicas \n ");
-
-                        for (int i = 0; i < MuniSonsonate.Length; i++)
-                        {
-                            Console.WriteLine($"{i + 1}-{MuniSonsonate[i]}");
-
-                        }
-                  
-                        break;
-                    case 5:
-                        WriteLine("Elegiste la opcion 1");
-                        Departamento = "La Libertad";
-                        Console.WriteLine("\nMuy bien ahora por favor dime el municipio donde te ubicas \n ");
-
-                        for (int i = 0; i < MuniLaLibertad.Length; i++)
-                        {
-                            Console.WriteLine($"{i + 1}-{MuniLaLibertad[i]}");
-
-                        }
-
-                  
-                        break;
-                    case 6:
-                        WriteLine("Elegiste la opcion 1");
-                        Departamento = "San Vicente";
-                        Console.WriteLine("\nMuy bien ahora por favor dime el municipio donde te ubicas \n");
-                        for (int i = 0; i < MuniSanVicente.Length; i++)
-                        {
-                            Console.WriteLine($"{i + 1}-{MuniSanVicente[i]}");
-
-                        }
-
-        
-                        break;
-
-                    default:
-                        break;
-#endregion
+                    Console.WriteLine($"{i + 1}-{opciones[i]}");
                 }
+                opcionDepartamento = int.Parse(Console.ReadLine());
             }
 
-            int opcionMunicipio;
+            Departamento = opciones[opcionDepartamento - 1];
+            Console.WriteLine($"\nEstos son los municipios de {Departamento}\n");
+
+            switch (Departamento)
+            {
+                case "Chalatenango":
+                    string[] muniChalatenango = { "Agua Caliente", "Arcatao", "Azacualpa", "Cascasque", "Chalatenango", "Citala" };
+                    ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nElige el municipio :D");
+                    ResetColor();
+                    for (int i = 0; i < muniChalatenango.Length; i++)
+                    {
+                        Console.WriteLine($"{i + 1}-{muniChalatenango[i]}");
+                    }
+                    int opcionMunicipio = int.Parse(Console.ReadLine());
+                    Municipio = muniChalatenango[opcionMunicipio - 1];
+                    break;
+
+                case "San Salvador":
+                    string[] muniSanSalvador = { "Antiguo Cuscatlan", "Santa Tecla", "Apopa", "Ciudad delgado", "Ilopango", "San Marcos" };
+                    ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nElige el municipio :D");
+                    ResetColor();
+                    for (int i = 0; i < muniSanSalvador.Length; i++)
+                    {
+                        Console.WriteLine($"{i + 1}-{muniSanSalvador[i]}");
+                    }
+                    opcionMunicipio = int.Parse(Console.ReadLine());
+                    Municipio = muniSanSalvador[opcionMunicipio - 1];
+                    break;
+
+                case "Santa Ana":
+                    string[] muniSantaAna = { "El Congo", "El Porvenir", "Massahuat", "Metapan", "San Antonio Pajonal", "Santa Rosa Guachipilin" };
+                    ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nElige el municipio :D");
+                    ResetColor();
+                    for (int i = 0; i < muniSantaAna.Length; i++)
+                    {
+                        Console.WriteLine($"{i + 1}-{muniSantaAna[i]}");
+                    }
+                    opcionMunicipio = int.Parse(Console.ReadLine());
+                    Municipio = muniSantaAna[opcionMunicipio - 1];
+                    break;
+
+                case "Sonsonate":
+                    string[] muniSonsonate = { "Acajutla", "Armenia", "Caluco", "Izalco", "Cuisnahuat", "Nahulingo" };//
+                    ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nElige el municipio :D");
+                    ResetColor();
+                    for (int i = 0; i < muniSonsonate.Length; i++)
+                    {
+                        Console.WriteLine($"{i + 1}-{muniSonsonate[i]}");
+                        Console.ReadLine();
+                    }
+                    opcionMunicipio = int.Parse(Console.ReadLine());
+                    Municipio = muniSonsonate[opcionMunicipio - 1];
+                    break;
+
+                case "La Libertad":
+                    string[] muniLaLibertad = { "Antiguo Cuscatlan", "Chiltiupan", "Ciudad Arce", "Colon", "Comasagua", "Jayaque" };//
+                    ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nElige el municipio :D");
+                    ResetColor();
+                    for (int i = 0; i < muniLaLibertad.Length; i++)
+                    {
+                        Console.WriteLine($"{i + 1}-{muniLaLibertad[i]}");
+                    }
+                    opcionMunicipio = int.Parse(Console.ReadLine());
+                    Municipio = muniLaLibertad[opcionMunicipio - 1];
+                    break;
+
+                case "San Vicente":
+                    string[] muniSanVicente = { "Apastepeque", "Guadalupe", "San Cateyatano", "San Lorenzo", "San Sebastian", "Santa clara" };//
+                    ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nElige el municipio :D");
+                    ResetColor();
+                    for (int i = 0; i < muniSanVicente.Length; i++)
+                    {
+                        Console.WriteLine($"{i + 1}-{muniSanVicente[i]}");
+                    }
+                    opcionMunicipio = int.Parse(Console.ReadLine());
+                    Municipio = muniSanVicente[opcionMunicipio - 1];
+                    break;
+
+                    
+            }
+
             
-
-
-
+        }
+        public String GetInformacion()
+        {
+            return "\nNombre: "+ Nombre + "\nApellido: " + Apellido  + "\nEdad: " + Edad + "\nDepartamento: " + Departamento + "\nMunicipio: " + Municipio;
+         
         }
 
     }

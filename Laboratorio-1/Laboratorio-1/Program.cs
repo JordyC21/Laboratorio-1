@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,56 +12,24 @@ namespace Laboratorio_1
     {
         static void Main(string[] args)
         {
-
-            //string nombre;
-            //string apellido;
-            //int edad;
-            //string departamento;
-            //string municipio; 
+            //a.El estudiante trabajara de forma individual.
+            //b.El estudiante deberá elaborar una aplicación en C#.
+            //c.El programa tendrá que tener estructuras de control. Elaborar una aplicación de consola
+            //con los siguientes datos:
 
 
-            //void RegistroCliente()
-            //{
-            //  Console.ForegroundColor = ConsoleColor.Red;
-            //  Console.WriteLine("********************************************");
-            //  Console.WriteLine("Por favor ingrese sus nombres por favor.\n");
-            //  nombre = Console.ReadLine();
-            //  Console.WriteLine("Por favor le solicitamos que ponga sus apellidos\n");
-            //  apellido = Console.ReadLine();
-            //  Console.WriteLine("¿Por favor digita el departamento de donde vives?\n");
-            //  int opcionDepartamento = int.Parse(Console.ReadLine());
-            //  Console.WriteLine("" +
-            //      "1- Chalatenango\n" +
-            //      " 2- San Salvador\n" +
-            //      " 3- Santa Ana\n" +
-            //      " 4- Sonsonate\n" +
-            //      " 5- La libertad\n" +
-            //      " 6- San vicente\n" +
-            //      " 7- Morazan\n" +
-            //      " 8- La Unión\n" +
-            //      " 9- San Miguel\n" +
-            //      " 10- Cabañas\n" +
-            //      " 11- Ahuachapan\n" +
-            //      " 12- La libertad\n" +
-            //      " 13- San Vicente\n" +
-            //      " 14- Cuscatlan\n");
-            //  if (opcionDepartamento > 14 || opcionDepartamento <= 0)
-            //  {
-            //      Console.WriteLine($"La opcion ingresada = {opcionDepartamento} no se encuentra en la lista, Por favor vuelve a seleccionar un Depatamento valido\n");
-            //      return;
-            //  }
-
-
-            //  Console.WriteLine("Muy bien ahora por favor dime el municipio donde te ubicas\n");
-            //  int opcionMunicipio;
-
-
+            // 1.Se ingresarán 3 datos nombres, edad, departamento y municipio.
+            //2.Los municipios deberán estar en lasados al departamento seleccionado.
+            //3.Al darle agregar el dato se guardarán en un arregló.
+            //4.Recorrer el arreglo y mostrar la edad.
+            //d.Subir proyecto a su respectivo GitHub.
+            //e.Entrega enlace en Classroom
 
             Persona persona = new Persona();
-            persona.RegistroCliente(persona.Nombre,persona.Apellido,persona.Edad, persona.Departamento, persona.Municipio);
-            
+            persona.RegistroCliente();
 
-
+            Console.WriteLine(persona.GetInformacion());
+            Console.ReadLine();
           
         }  
     }
